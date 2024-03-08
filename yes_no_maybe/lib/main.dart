@@ -1,6 +1,6 @@
 //mateApp comando para crear estructura basica
 import 'package:flutter/material.dart';
-import 'package:yes_no_maybe/config/presentation/chat/chat_screen.dart';
+import 'package:yes_no_maybe/config/presentation/screens/chat/chat_screen.dart';
 import 'package:yes_no_maybe/config/theme/app_theme.dart';
 
 void main() => runApp(const MyApp());
