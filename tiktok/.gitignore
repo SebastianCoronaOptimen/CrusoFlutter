@@ -43,4 +43,4 @@ app.*.map.json
 /android/app/release
 
 
-tiktok/assets/videos/*
+tiktok/assets/videos/
