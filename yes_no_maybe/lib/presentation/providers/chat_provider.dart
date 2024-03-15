@@ -8,7 +8,7 @@ class ChatProvider extends ChangeNotifier{
   final getYesNoAnswer = GetYesNoAnswer();
 
   List<Message> messageList =[
-    Message(text: 'Hola Amor', fromWho: FromWho.me),
+    Message(text: 'Hola', fromWho: FromWho.me),
     Message(text: 'Ya regresaste?', fromWho: FromWho.me)
   ];
 
