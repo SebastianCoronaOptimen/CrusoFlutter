@@ -41,7 +41,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-tiktok/assets/videos/7.mp4
+**/assets/videos/*.mp4
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
