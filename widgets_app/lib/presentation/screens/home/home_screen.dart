@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
 
 
@@ -46,7 +47,7 @@ class _CustomListTile extends StatelessWidget {
 
     return ListTile(
       leading: Icon(menuItem.icon, color: colors.primary,),
-      trailing: Icon(Icons.arrow_back_ios_rounded, color: colors.primary,),
+      trailing: Icon(Icons.arrow_forward_ios_outlined, color: colors.primary,),
       title:  Text(menuItem.title),
       subtitle: Text(menuItem.subtitle),
       onTap: (){
@@ -54,7 +55,8 @@ class _CustomListTile extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => const ButtonsScreen(),)
         ); */
-        Navigator.pushNamed(context, menuItem.link);
+        //Navigator.pushNamed(context, menuItem.link);
+        context.push(menuItem.link);
       },
     );
   }
