@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:tiktok/presentation/widgets/video/video_backgrounnd.dart';
 import 'package:video_player/video_player.dart';
 
@@ -24,7 +25,7 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
   void initState() {
     super.initState();
     controller = VideoPlayerController.asset(widget.videoUrl)
-    ..setVolume(0)
+    ..setVolume(10)
     ..setLooping(true)
     ..play();
   }
@@ -54,14 +55,20 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
           child: AspectRatio(
             aspectRatio: controller.value.aspectRatio,
             child:Stack( 
-             children: [VideoPlayer(controller),
+             children: [
+             MediaQuery.of(context).orientation == Orientation.landscape  
+             ? VideoPlayer(controller)
+             : Transform.scale(scaleY: .5, child: VideoPlayer(controller)),
+             
              VideoBackground(
               stops: const [0.8,1.0],
              ),
              Positioned(
               bottom:20,
               left:5,
-              child: _VideoCaption(caption:  widget.caption,))]
+              child: _VideoCaption(caption:  //'${MediaQuery.of(context).orientation == Orientation.portrait}'
+              widget.caption,
+              ))]
             )),
         );
     },);
