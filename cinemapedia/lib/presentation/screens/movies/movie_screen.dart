@@ -76,7 +76,7 @@ class _MovieDetails extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
                   movie.posterPath,
-                  width: size.width * 0.3,
+                  width: size.width * 0.3, 
                 ),
               ),
               const SizedBox(width: 10,),
