@@ -43,7 +43,7 @@ class MovieScreenState extends ConsumerState<MovieScreen> {
         physics: const ClampingScrollPhysics(),
         slivers: [
           _CustomSliverAppBar(movie: movie),
-          SliverList(delegate: SliverChildBuilderDelegate((context, index) => _MovieDetails(movie:movie)))
+          SliverList(delegate: SliverChildBuilderDelegate((context, index) => _MovieDetails(movie:movie), childCount: 1))
         ],
       )
     );
@@ -83,6 +83,7 @@ class _MovieDetails extends StatelessWidget {
               SizedBox(
                 width: (size.width - 40) *0.7,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(movie.title, style: textStyles.titleLarge,),
                     Text(movie.overview)
@@ -91,6 +92,19 @@ class _MovieDetails extends StatelessWidget {
               )
             ],
           ),),
+
+          Padding(padding: const EdgeInsets.all(8),
+          child: Wrap(
+            children: [
+              ...movie.genreIds.map((gender)=>Container(
+                margin: const EdgeInsets.only(right: 10),
+                child: Chip(label: Text(gender),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),),
+              ))
+            ],
+          ),),
+
+          const SizedBox(height: 100,)
         ],
     );
   }
